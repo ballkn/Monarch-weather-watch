@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f59e0b">
+  <title>Monarch Weather Watch</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#18181b;background:#fff7ed}
+    body{margin:0;padding:env(safe-area-inset-top) 18px env(safe-area-inset-bottom);max-width:760px;margin:auto}
+    header{padding:26px 0 12px}
+    h1{font-size:30px;margin:0 0 5px}.sub{color:#52525b}
+    .card{background:white;border-radius:22px;padding:20px;margin:14px 0;box-shadow:0 8px 30px #00000012}
+    .score{font-size:68px;font-weight:800;letter-spacing:-4px}.score small{font-size:22px;letter-spacing:0;color:#71717a}
+    .pill{display:inline-block;padding:7px 11px;border-radius:999px;background:#f4f4f5;margin:4px 4px 4px 0;font-size:14px}
+    button,a.btn{appearance:none;border:0;border-radius:14px;padding:14px 16px;font-size:16px;font-weight:700;text-decoration:none;display:inline-block;margin:5px 5px 5px 0}
+    button{background:#18181b;color:white}.secondary{background:#f4f4f5;color:#18181b}
+    .good{color:#15803d}.maybe{color:#b45309}.poor{color:#b91c1c}
+    #status{font-weight:700;font-size:20px;margin-top:3px}
+    .tiny{font-size:13px;color:#71717a;line-height:1.45}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{padding:10px;background:#fafafa;border-radius:12px}
+    .metric b{display:block;font-size:18px}.metric span{font-size:12px;color:#71717a}
+  </style>
+</head>
+<body>
+<header><h1>🦋 Monarch Weather Watch</h1><div class="sub">Hickory, North Carolina • fall migration lookout</div></header>
+
+<section class="card">
+  <div id="score" class="score">—<small>/100</small></div>
+  <div id="status">Checking weather…</div>
+  <p id="window"></p>
+  <div id="reasons"></div>
+</section>
+
+<section class="card">
+  <h2>Afternoon conditions</h2>
+  <div class="row">
+    <div class="metric"><b id="temp">—</b><span>Peak temperature</span></div>
+    <div class="metric"><b id="wind">—</b><span>Wind</span></div>
+    <div class="metric"><b id="cloud">—</b><span>Cloud cover</span></div>
+    <div class="metric"><b id="rain">—</b><span>Precipitation</span></div>
+  </div>
+  <p class="tiny">The score favors warm, dry, sunny afternoons with northerly winds after a likely cold-frontal passage.</p>
+</section>
+
+<section class="card">
+  <h2>Alerts</h2>
+  <p>For reliable iPhone push alerts, subscribe to the shared alert channel in the free ntfy app.</p>
+  <a class="btn secondary" href="https://ntfy.sh/monarch-weather-hickory-8284" target="_blank">Open alert channel</a>
+  <button id="testBtn">Test local notification</button>
+  <p class="tiny">The local test proves notification permission on this device. The scheduled cloud check publishes real qualifying alerts to the shared channel.</p>
+</section>
+
+<section class="card">
+  <h2>What counts as favorable?</h2>
+  <div class="pill">≥ 68°F</div><div class="pill">mostly sunny / partly cloudy</div>
+  <div class="pill">little rain</div><div class="pill">N / NE / NW winds</div>
+  <div class="pill">post-front signal</div>
+  <p class="tiny">A “post-front signal” is inferred from a recent drop in dew point and temperature plus a wind shift toward a northerly component. It is an indicator, not a meteorologist-confirmed frontal analysis.</p>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
